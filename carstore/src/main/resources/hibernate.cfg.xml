@@ -25,5 +25,16 @@
         <property name="hibernate.dbcp.minIdle">5</property>
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>
         <mapping class="com.myapp.entity.Car" />
+        <mapping class="com.myapp.entity.Cart" />
+        <mapping class="com.myapp.entity.Car" />
+        <mapping class="com.myapp.entity.Category" />
+        <mapping class="com.myapp.entity.Order" />
+        <mapping class="com.myapp.entity.User" />
+        <mapping class="com.myapp.entity.UserType" />
+
+
+
+
+
     </session-factory>
 </hibernate-configuration>

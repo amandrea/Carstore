@@ -1,24 +1,45 @@
 package com.myapp.entity;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
+
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int userId;
+
     @Column
     private String userName;
+
     @Column
     private String email;
+
     @Column
     private String phone;
+
     @Column
     private String address;
+
     @Column
     private String cityRegion;
+
     @Column
     private String cCNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
     public String getCityRegion() {
         return cityRegion;
     }

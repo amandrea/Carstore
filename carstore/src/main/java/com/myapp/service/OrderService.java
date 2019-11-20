@@ -1,7 +1,7 @@
 package com.myapp.service;
 import com.myapp.dao.OrderDAO;
 
-import com.myapp.entity.Order;
+import com.myapp.entity.OrderEntity;
 import org.apache.log4j.Logger;
 
 public class OrderService {
@@ -12,28 +12,28 @@ public class OrderService {
         orderDAO =new OrderDAO();
     }
 
-    public void persist(Order entity) {
+    public void persist(OrderEntity entity) {
         orderDAO.openCurrentSessionwithTransaction();
         orderDAO.persist(entity);
         orderDAO.closeCurrentSessionwithTransaction();
         LOG.info("S-a salvat"+ entity.toString());
     }
-    public void delete(Order entity)
+    public void delete(OrderEntity entity)
     {
         orderDAO.openCurrentSessionwithTransaction();
         orderDAO.delete(entity);
         orderDAO.closeCurrentSessionwithTransaction();
         LOG.info("S-a sters "+ entity);
     }
-    public Order findById(Integer integer) {
-        Order test;
+    public OrderEntity findById(Integer integer) {
+        OrderEntity test;
         orderDAO.openCurrentSession();
         test= orderDAO.findById(integer);
         orderDAO.closeCurrentSession();
         LOG.info("S-a gasit "+ integer);
         return test;
     }
-    public void update(Order entity){
+    public void update(OrderEntity entity){
         orderDAO.openCurrentSessionwithTransaction();
         orderDAO.update(entity);
         orderDAO.closeCurrentSessionwithTransaction();

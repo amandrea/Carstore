@@ -1,7 +1,9 @@
 package com.myapp.dao;
+
 import java.io.Serializable;
 import java.util.List;
-public  interface CarDAOInterface <T, Id extends Serializable>{
+
+public interface CarDAOInterface<T, Id extends Serializable> {
     public void persist(T entity);
 
     public void update(T entity);

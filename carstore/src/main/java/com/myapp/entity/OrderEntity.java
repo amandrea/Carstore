@@ -1,10 +1,12 @@
 package com.myapp.entity;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-public class Order {
+public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -13,6 +15,39 @@ public class Order {
     private double amount;
     @Column
     private Date date;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Set<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Car> cars;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Cart cart;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getOrderId() {
         return orderId;

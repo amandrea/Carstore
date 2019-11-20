@@ -28,7 +28,7 @@
         <mapping class="com.myapp.entity.Cart" />
         <mapping class="com.myapp.entity.Car" />
         <mapping class="com.myapp.entity.Category" />
-        <mapping class="com.myapp.entity.Order" />
+        <mapping class="com.myapp.entity.OrderEntity" />
         <mapping class="com.myapp.entity.User" />
         <mapping class="com.myapp.entity.UserType" />
 

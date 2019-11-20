@@ -6,10 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.Collections;
 import java.util.List;
-public class UserDAO implements UserDAOInterface<User, Integer>{
-    private final static Logger LOG= Logger.getLogger(UserDAO.class.getName());
+public class UserDAO implements UserDAOInterface<User, Integer> {
+    private final static Logger LOG = Logger.getLogger(UserDAO.class.getName());
     private Session currentSession;
     private Transaction currentTransaction;
+
     public UserDAO() {
 //We dont need to initialize anything
     }
@@ -63,7 +64,7 @@ public class UserDAO implements UserDAOInterface<User, Integer>{
 
     @Override
     public User findById(Integer integer) {
-        return getCurrentSession().get(User.class,integer);
+        return getCurrentSession().get(User.class, integer);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class UserDAO implements UserDAOInterface<User, Integer>{
 
     @Override
     public List<User> findAll() {
-        return (List<User>)getCurrentSession().createQuery("FROM User").list();
+        return (List<User>) getCurrentSession().createQuery("FROM User").list();
     }
 
     @Override

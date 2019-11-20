@@ -2,6 +2,7 @@ package com.myapp.entity;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -31,6 +32,28 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
     private Cart cart;
+
+    public Set<UserType> getUserTypes() {
+        return userTypes;
+    }
+
+    public void setUserTypes(Set<UserType> userTypes) {
+        this.userTypes = userTypes;
+    }
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<OrderEntity> orders;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<UserType> userTypes;
+
+    public Set<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<OrderEntity> orders) {
+        this.orders = orders;
+    }
 
     public Cart getCart() {
         return cart;

@@ -1,16 +1,19 @@
 package com.myapp.dao;
+
 import com.myapp.entity.Cart;
 import com.myapp.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import java.util.Collections;
 import java.util.List;
 
-public class CartDAO implements CartDAOInterface<Cart, Integer>{
-    private final static Logger LOG= Logger.getLogger(CartDAO.class.getName());
+public class CartDAO implements CartDAOInterface<Cart, Integer> {
+    private final static Logger LOG = Logger.getLogger(CartDAO.class.getName());
     private Session currentSession;
     private Transaction currentTransaction;
+
     public CartDAO() {
 //We dont need to initialize anything
     }
@@ -64,7 +67,7 @@ public class CartDAO implements CartDAOInterface<Cart, Integer>{
 
     @Override
     public Cart findById(Integer integer) {
-        return getCurrentSession().get(Cart.class,integer);
+        return getCurrentSession().get(Cart.class, integer);
     }
 
     @Override
@@ -75,7 +78,7 @@ public class CartDAO implements CartDAOInterface<Cart, Integer>{
 
     @Override
     public List<Cart> findAll() {
-        return (List<Cart>)getCurrentSession().createQuery("FROM Cart").list();
+        return (List<Cart>) getCurrentSession().createQuery("FROM Cart").list();
     }
 
     @Override

@@ -1,15 +1,19 @@
 package com.myapp.dao;
+
 import com.myapp.entity.UserType;
 import com.myapp.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import java.util.Collections;
 import java.util.List;
-public class UserTypeDAO implements UserTypeDAOInterface<UserType, Integer>{
-    private final static Logger LOG= Logger.getLogger(UserTypeDAO.class.getName());
+
+public class UserTypeDAO implements UserTypeDAOInterface<UserType, Integer> {
+    private final static Logger LOG = Logger.getLogger(UserTypeDAO.class.getName());
     private Session currentSession;
     private Transaction currentTransaction;
+
     public UserTypeDAO() {
 //We dont need to initialize anything
     }
@@ -63,7 +67,7 @@ public class UserTypeDAO implements UserTypeDAOInterface<UserType, Integer>{
 
     @Override
     public UserType findById(Integer integer) {
-        return getCurrentSession().get(UserType.class,integer);
+        return getCurrentSession().get(UserType.class, integer);
     }
 
     @Override
@@ -74,7 +78,7 @@ public class UserTypeDAO implements UserTypeDAOInterface<UserType, Integer>{
 
     @Override
     public List<UserType> findAll() {
-        return (List<UserType>)getCurrentSession().createQuery("FROM UserType").list();
+        return (List<UserType>) getCurrentSession().createQuery("FROM UserType").list();
     }
 
     @Override

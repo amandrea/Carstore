@@ -9,10 +9,10 @@ import org.hibernate.Transaction;
 import java.util.Collections;
 import java.util.List;
 
-public class CarDAO implements CarDAOInterface<Car, Integer>{
-    private final static Logger LOG= Logger.getLogger(CarDAO.class.getName());
-private Session currentSession;
-private Transaction currentTransaction;
+public class CarDAO implements CarDAOInterface<Car, Integer> {
+    private final static Logger LOG = Logger.getLogger(CarDAO.class.getName());
+    private Session currentSession;
+    private Transaction currentTransaction;
 
     public CarDAO() {
 //We dont need to initialize anything
@@ -67,7 +67,7 @@ private Transaction currentTransaction;
 
     @Override
     public Car findById(Integer integer) {
-       return getCurrentSession().get(Car.class,integer);
+        return getCurrentSession().get(Car.class, integer);
     }
 
     @Override
@@ -78,7 +78,7 @@ private Transaction currentTransaction;
 
     @Override
     public List<Car> findAll() {
-        return (List<Car>)getCurrentSession().createQuery("FROM Car").list();
+        return (List<Car>) getCurrentSession().createQuery("FROM Car").list();
     }
 
     @Override

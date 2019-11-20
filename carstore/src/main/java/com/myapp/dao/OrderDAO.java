@@ -1,16 +1,16 @@
 package com.myapp.dao;
-import com.myapp.entity.Order;
+import com.myapp.entity.OrderEntity;
 import com.myapp.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.Collections;
 import java.util.List;
-public class OrderDAO implements OrderDAOInterface<Order, Integer>{
-    private final static Logger LOG= Logger.getLogger(OrderDAO.class.getName());
+public class OrderDAO implements OrderDAOInterface<OrderEntity, Integer>{
+    private final static Logger LOG = Logger.getLogger(OrderDAO.class.getName());
     private Session currentSession;
     private Transaction currentTransaction;
+
     public OrderDAO() {
 //We dont need to initialize anything
     }
@@ -53,29 +53,29 @@ public class OrderDAO implements OrderDAOInterface<Order, Integer>{
     }
 
     @Override
-    public void persist(Order entity) {
+    public void persist(OrderEntity entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Order entity) {
+    public void update(OrderEntity entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public Order findById(Integer integer) {
-        return getCurrentSession().get(Order.class,integer);
+    public OrderEntity findById(Integer integer) {
+        return getCurrentSession().get(OrderEntity.class, integer);
     }
 
     @Override
-    public void delete(Order entity) {
+    public void delete(OrderEntity entity) {
         getCurrentSession().delete(entity);
 
     }
 
     @Override
-    public List<Order> findAll() {
-        return (List<Order>)getCurrentSession().createQuery("FROM Order").list();
+    public List<OrderEntity> findAll() {
+        return (List<OrderEntity>) getCurrentSession().createQuery("FROM Order").list();
     }
 
     @Override

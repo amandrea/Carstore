@@ -6,10 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.Collections;
 import java.util.List;
-public class CategoryDAO implements CategoryDAOInterface<Category, Integer>{
-    private final static Logger LOG= Logger.getLogger(CategoryDAO.class.getName());
+public class CategoryDAO implements CategoryDAOInterface<Category, Integer> {
+    private final static Logger LOG = Logger.getLogger(CategoryDAO.class.getName());
     private Session currentSession;
     private Transaction currentTransaction;
+
     public CategoryDAO() {
 //We dont need to initialize anything
     }
@@ -63,7 +64,7 @@ public class CategoryDAO implements CategoryDAOInterface<Category, Integer>{
 
     @Override
     public Category findById(Integer integer) {
-        return getCurrentSession().get(Category.class,integer);
+        return getCurrentSession().get(Category.class, integer);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class CategoryDAO implements CategoryDAOInterface<Category, Integer>{
 
     @Override
     public List<Category> findAll() {
-        return (List<Category>)getCurrentSession().createQuery("FROM Category").list();
+        return (List<Category>) getCurrentSession().createQuery("FROM Category").list();
     }
 
     @Override
